@@ -1,8 +1,10 @@
-# pages/urls.py
 from django.urls import path
 
-from .views import homePageView
+from .views import fileUploadForm, readme, error404
 
 urlpatterns = [
-    path('', homePageView, name='home')
+    path('', fileUploadForm, name='file_upload'),
+    path('readme', readme, name='readme')
 ]
+
+handler404 = error404
