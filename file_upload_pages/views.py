@@ -11,7 +11,6 @@ def fileUploadForm(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         print(request.POST)
-        
         if form.is_valid():
             #handle_uploaded_file(request.FILES['file'])
             if request.FILES and "file" in request.FILES and request.FILES["file"]:
@@ -25,8 +24,14 @@ def fileUploadForm(request):
                 responseInterpreterInstance = responseInterpreter(responseCode)
                 args["responseMessage"] = responseInterpreterInstance.getResponseMessage()
                 del responseInterpreterInstance
-            #return HttpResponseRedirect('')
-
+           #return HttpResponseRedirect('')
+        if request.POST and "delete" in request.POST and request.POST["delete"]:
+            deletePhotoInstance = deletePhoto(request.POST["delete"])
+            responseCode = deletePhotoInstance.deletePhoto()
+            del deletePhotoInstance
+            responseInterpreterInstance = responseInterpreter(responseCode)
+            args["responseMessage"] = responseInterpreterInstance.getResponseMessage()
+            del responseInterpreterInstance
     imageListInsance = imageList()
     imagesList = imageListInsance.getList()
     
@@ -35,7 +40,6 @@ def fileUploadForm(request):
         imagesList[0]["errorMessage"] = responseInterpreterInstance.getResponseMessage()
         del responseInterpreterInstance
     args["imagesList"] = imagesList
-    print(args["imagesList"])
     return render(request, 'index.html', {'form': form, 'args': args})
 
 def readme(request):

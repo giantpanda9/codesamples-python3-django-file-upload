@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import fileUploadForm, readme, error404
+from .views import fileUploadForm, readme, error404, error413
 
 urlpatterns = [
     path('', fileUploadForm, name='file_upload'),
@@ -8,3 +8,5 @@ urlpatterns = [
 ]
 
 handler404 = error404
+
+handler413 = error413
