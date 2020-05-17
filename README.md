@@ -31,12 +31,12 @@ To demonstrate ability to create web application on Python Flask as part of home
 
 # How to run?
 1) 127.0.0.1:8000 - main page
-2) http://127.0.0.1:8000/readme - detailed instruction on how to use - link shoudl be on main page #Notes
-3) Camera Make and Camera Model being displayed only if available in EXIF data otherwise "Not Available" text being displayed
-4)Photo Created or Photo Digitized Date being displayed only if available in EXIF data otherwise "Not Available" text being displayed
-5)Consider reading detailed instruction available by the link on the main page after you will run the project
+2) http://127.0.0.1:8000/readme - detailed instruction on how to use - link shoudl be on main page 
 
 # Notes
 1) Why hachoir used instead of PIL:
 2) Bug on Python 3.6 and PIL with reading EXIF data: https://github.com/python-pillow/Pillow/issues/2944
 3) Another similar report - not reading EXIF data in all files: https://github.com/python-pillow/Pillow/issues/518
+4) Camera Make and Camera Model being displayed only if available in EXIF data otherwise "Not Available" text being displayed
+5) Photo Created or Photo Digitized Date being displayed only if available in EXIF data otherwise "Not Available" text being displayed
+6)Consider reading detailed instruction available by the link on the main page after you will run the project
