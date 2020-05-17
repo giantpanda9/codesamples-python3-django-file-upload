@@ -18,11 +18,12 @@
 				<div class="main-data-block-item"><input type="file" name="file"></div>
 				<div class="main-data-block-item"><button type="submit">Upload photo</button></div>
 				<div class="main-data-block-item">Click <a href="/readme">here</a> to read detailed instructions</div>
+				{% csrf_token %}
 			</form>
 		</div>
 		<!--Uploaded photos container-->
 		{% if args and 'imagesList' in args %}
-			{% if 'errorMessage' in args.imagesList.0. %}
+			{% if 'errorMessage' in args.imagesList.0 %}
 				<div class="main-data-block">
 					{{ args.imagesList.0.errorMessage }}
 				</div>
@@ -51,6 +52,7 @@
 									<td> {{ item.DateCreated }} </td>
 									<td> {{ item.UploadedDate }} </td>
 									<td><button type="submit" name="delete" value="{{ item.name }}">Delete</button></td>
+									{% csrf_token %}
 								</tr>
 								
 							{% endfor %}
